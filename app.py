@@ -30,12 +30,18 @@ sales_region.plot(kind="bar", ax=ax)
 st.pyplot(fig)
 
 #monthly sales
-data["Month"] = data["Order_Date"].dt.month_name()
+# create month column
+data['Month'] = data['Order_Date'].dt.month_name()
 
-monthly_sales = (
-    data.groupby("Month")["Sales"]
-    .sum()
-)
+# set correct month order
+month_order = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December'
+]
+
+# convert Month to ordered categorical
+data['Month_Num'] = data['Order_Date'].dt.month
+monthly_sales = data.groupby('Month_Num')['Sales'].sum().sort_index()
 
 fig, ax = plt.subplots()
 
