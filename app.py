@@ -46,6 +46,7 @@ monthly_sales = data.groupby('Month_Num')['Sales'].sum().sort_index()
 fig, ax = plt.subplots()
 
 monthly_sales.plot(ax=ax)
+plt.xticks(range(1,13), month_order, rotation=45)
 
 st.pyplot(fig)
 
