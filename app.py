@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 
 st.title("📊 E-Commerce Sales Dashboard")
 
-data = pd.read_csv("data/Ecommerce_Orders.csv")
+data = pd.read_csv("data/cleaned_data.csv")
+# Convert Order_Date to datetime
+data["Order_Date"] = pd.to_datetime(
+    data["Order_Date"],
+    format="mixed"
+)
 
 st.subheader("Dataset Preview")
 st.dataframe(data.head())  
