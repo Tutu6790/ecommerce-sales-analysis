@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 st.title("📊 E-Commerce Sales Dashboard")
 
-data = pd.read_excel("data/Ecommerce_Orders.csv")
+data = pd.read_csv("data/Ecommerce_Orders.csv")
 
 st.subheader("Dataset Preview")
 st.dataframe(data.head())  
